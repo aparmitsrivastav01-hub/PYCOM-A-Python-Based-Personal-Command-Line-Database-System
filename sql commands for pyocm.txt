@@ -1,0 +1,51 @@
+USE e_commerce;
+
+CREATE TABLE Customers (
+    Customer_ID INT PRIMARY KEY,
+    Username VARCHAR(50) UNIQUE,
+    Password VARCHAR(50),
+    Name VARCHAR(100),
+    Address VARCHAR(200),
+    Phone VARCHAR(15),
+    Email VARCHAR(50)
+);
+
+CREATE TABLE Seller (
+    Seller_ID INT PRIMARY KEY,
+    Seller_Name VARCHAR(100),
+    Brand_Name VARCHAR(100),
+    Username VARCHAR(50) UNIQUE,
+    Password VARCHAR(50),
+    Phone VARCHAR(15),
+    Email VARCHAR(50)
+);
+
+CREATE TABLE Products (
+    Product_ID INT PRIMARY KEY,
+    Category VARCHAR(50),
+    Name VARCHAR(100),
+    Quantity INT,
+    Price INT,
+    Brand_Name VARCHAR(50),
+    Seller_ID INT
+);
+
+CREATE TABLE Orders (
+    Transaction_ID INT PRIMARY KEY,
+    Customer_ID INT,
+    Product_ID INT,
+    Date_of_dispatch DATE,
+    Quantity INT,
+    Price INT,
+    Total_Amount INT
+);
+
+CREATE TABLE Feedbacks (
+    Feedback_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Customer_ID INT,
+    Feedback VARCHAR(500),
+    Seller_ID INT NULL,
+    Product_ID INT NULL,
+    Seller_Name VARCHAR(100)
+);
+
